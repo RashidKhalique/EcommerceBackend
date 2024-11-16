@@ -26,8 +26,5 @@ router.route('/send-email').post(sendEmail)
 
 
 
-// router.route('/')
-
-
 
 export { router };

@@ -39,7 +39,6 @@ app.post('/api/payment', StripePayment);  // Stripe payment route
 
 // Use the coupon router for coupon-related routes
 app.use('/api/discount', couponRouter);  // Coupons are handled under '/api/coupon' route
-
 // Error Handling Middleware
 app.use((err, req, res, next) => {
     err.statusCode = err.statusCode || 500;
@@ -48,7 +47,10 @@ app.use((err, req, res, next) => {
         message: err.message,
     });
 });
-
+console.log(process.env.mongoURI);
+app.get(('/'),()=>{
+     res.status(201).send("Request Successfully Geted");
+})
 mongoose.connect(process.env.mongoURI)
     .then(() => {
         console.log("Database connection established successfully");
