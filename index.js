@@ -17,7 +17,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "*",
     methods: "GET,POST,PUT,DELETE,OPTIONS",
     credentials: true,
     allowedHeaders: "Content-Type, Authorization",
@@ -39,6 +39,9 @@ app.post('/api/payment', StripePayment);  // Stripe payment route
 
 // Use the coupon router for coupon-related routes
 app.use('/api/discount', couponRouter);  // Coupons are handled under '/api/coupon' route
+app.get('/',(req,res)=>{
+res.status(201).send("BACKEND IS OK NOW")
+})
 // Error Handling Middleware
 app.use((err, req, res, next) => {
     err.statusCode = err.statusCode || 500;
