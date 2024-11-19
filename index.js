@@ -47,10 +47,7 @@ app.use((err, req, res, next) => {
         message: err.message,
     });
 });
-console.log(process.env.mongoURI);
-app.get(('/'),()=>{
-     res.status(201).send("Request Successfully Geted");
-})
+
 mongoose.connect(process.env.mongoURI)
     .then(() => {
         console.log("Database connection established successfully");
