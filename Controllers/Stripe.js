@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 
-const stripe = new Stripe(`${process.env.Stripe}`); // Replace with your actual Stripe secret key
+const stripe = new Stripe('sk_test_51Q9hCRKrBgfqkwHlYfXnqCTl4OAVDkevZEBJbc5FLzzfXgi8cFY8rXkN6EAm6FWU8Ii1ZsepHQF3sxGSKiswY0i800nShpw6nr'); // Replace with your actual Stripe secret key
 
 const customers = {};
 
