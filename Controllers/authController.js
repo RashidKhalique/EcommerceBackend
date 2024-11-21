@@ -50,8 +50,6 @@ const signUp = async (req, res, next) => {
         if (existUser) {
             return res.status(409).json({ message: 'User already exists' });
         }
-
-        // Hash the password before saving
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
