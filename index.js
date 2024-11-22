@@ -12,7 +12,7 @@ import couponRouter from "./Route/coupon.route.js";  // Import the coupon router
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.use(express.json());
 
@@ -40,9 +40,9 @@ app.post('/api/payment', StripePayment);  // Stripe payment route
 // Use the coupon router for coupon-related routes
 app.use('/api/discount', couponRouter);  // Coupons are handled under '/api/coupon' route
 app.get('/',(req,res)=>{
-res.status(201).send("BACKEND IS OK NOW")
+res.status(201).json({success : true , message : "Backend is Ready You can Fetch Api Now"})
 })
-// Error Handling Middleware
+
 app.use((err, req, res, next) => {
     err.statusCode = err.statusCode || 500;
     res.status(err.statusCode).json({
