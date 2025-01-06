@@ -13,7 +13,7 @@ dotenv.config();
 
 const app = express();
 const port = 3000;
-
+app.use(express.json())
 app.use(express.urlencoded({limit:"16kb",extended:true}))
 app.use(cors({
     origin: "*",
