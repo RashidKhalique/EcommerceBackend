@@ -5,9 +5,9 @@ const updateOrder = async (req, res) => {
     try {
       const { orderId, DeliveryStatus, DeliveredDate } = req.body;
   
-  
+  console.log(req.body)
       // Use findOne instead of findById
-      const order = await OrderManagement.findOne({ orderId: orderId });
+      const order = await OrderManagement.findOne({ orderId });
       if (!order) {
         return res.status(404).json({ success: false, message: "Order not found." });
       }
